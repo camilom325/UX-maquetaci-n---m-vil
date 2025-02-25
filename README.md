@@ -1,17 +1,35 @@
 # talk_alarm
 
-A new Flutter project.
+Un proyecto de Flutter de la maquetación del prototipo móvil.
 
-## Getting Started
+## Comenzando
 
-This project is a starting point for a Flutter application.
+Para comenzar con este proyecto de Flutter, sigue estos pasos:
 
-A few resources to get you started if this is your first Flutter project:
+### Prerrequisitos
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Asegúrate de tener Flutter instalado. Puedes descargarlo desde [flutter.dev](https://flutter.dev).
+- Asegúrate de tener un dispositivo o emulador configurado para pruebas.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# UX-maquetaci-n---m-vil
+### Instalación
+
+1. **Clona el repositorio:**
+
+   ```sh
+   git clone https://github.com/camilom325/UX-maquetaci-n---m-vil.git
+   ```
+
+2. **Obtén las dependencias:**
+   ```sh
+   flutter pub get
+   ```
+
+### Ejecutando la App
+
+1. **Conecta un dispositivo o inicia un emulador.**
+2. **Ejecuta la app:**
+   ```sh
+   flutter run
+   ```
+
+Para más información sobre Flutter, consulta la [documentación oficial](https://flutter.dev/docs).
