@@ -8,8 +8,10 @@ Para comenzar con este proyecto de Flutter, sigue estos pasos:
 
 ### Prerrequisitos
 
-- Asegúrate de tener Flutter instalado. Puedes descargarlo desde [flutter.dev](https://flutter.dev).
-- Asegúrate de tener un dispositivo o emulador configurado para pruebas.
+- Asegúrate de tener Flutter instalado. Puedes descargarlo desde [flutter.dev](https://docs.flutter.dev/get-started/install?gad_source=1&gclid=Cj0KCQjw4cS-BhDGARIsABg4_J00EPhane08wmxMSQxQ7cazlq_dptTjngixTUOFzN6OAmw4NiaJF8AaAg7uEALw_wcB&gclsrc=aw.ds).
+- Instalar SDK para android
+- - Seguir [este tutorial](https://docs.flutter.dev/get-started/install/windows/mobile) para instalar flutter y lo necesario para correr el proyecto
+- Asegúrate de tener un dispositivo o emulador configurado para pruebas, preferiblemente android.
 
 ### Instalación
 
