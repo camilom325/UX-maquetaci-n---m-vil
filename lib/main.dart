@@ -466,3 +466,131 @@ class CalendarIntegrationScreen extends StatelessWidget {
     );
   }
 }
+
+class CalendarCreateEventScreen extends StatelessWidget {
+  const CalendarCreateEventScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Crear Evento', style: TextStyle(color: Color(0xFF38388E))),
+        backgroundColor: Color(0xFFECF1FF),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Título del Evento',
+                prefixIcon: Icon(Icons.event_note, color: Color(0xFFAB7E85)),
+              ),
+            ),
+            SizedBox(height: 16),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Fecha',
+                prefixIcon: Icon(Icons.calendar_today, color: Color(0xFFAB7E85)),
+              ),
+              readOnly: true,
+              onTap: () async {
+                await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime.now().add(Duration(days: 365)),
+                );
+              },
+            ),
+            SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Hora inicio',
+                      prefixIcon: Icon(Icons.access_time, color: Color(0xFFAB7E85)),
+                    ),
+                    readOnly: true,
+                    onTap: () async {
+                      await showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.now(),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Hora fin',
+                      prefixIcon: Icon(Icons.access_time, color: Color(0xFFAB7E85)),
+                    ),
+                    readOnly: true,
+                    onTap: () async {
+                      await showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.now().replacing(
+                          hour: (TimeOfDay.now().hour + 1) % 24,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Descripción',
+                prefixIcon: Icon(Icons.description, color: Color(0xFFAB7E85)),
+              ),
+              maxLines: 3,
+            ),
+            SizedBox(height: 16),
+            Text('Calendario', 
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            ListTile(
+              leading: Icon(Icons.calendar_today_outlined, color: Color(0xFFAB7E85)),
+              title: Text('Google Calendar'),
+              trailing: Radio(
+                value: 'google',
+                groupValue: 'google',
+                onChanged: (value) {},
+                activeColor: Color(0xFF38388E),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.event_note_outlined, color: Color(0xFFAB7E85)),
+              title: Text('Outlook Calendar'),
+              trailing: Radio(
+                value: 'outlook',
+                groupValue: 'google',
+                onChanged: (value) {},
+                activeColor: Color(0xFF38388E),
+              ),
+            ),
+            Spacer(),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.save, color: Colors.white),
+              label: Text('Guardar Evento', style: TextStyle(color: Colors.white)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF38388E),
+                minimumSize: Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
