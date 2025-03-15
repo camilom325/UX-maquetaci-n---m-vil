@@ -265,6 +265,85 @@ class CreateEditAlarmScreen extends StatelessWidget {
   }
 }
 
+class CreateDeleteAlarmScreen extends StatelessWidget {
+  const CreateDeleteAlarmScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          title:
+              Text('Eliminar Alarma', style: TextStyle(color: Color(0xFF38388E))),
+          backgroundColor: Color(0xFFECF1FF)),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                  labelText: 'Hora', prefixIcon: Icon(Icons.alarm)),
+              readOnly: true,
+              enabled: false,
+            ),
+            SizedBox(height: 16),
+            TextField(
+              decoration: InputDecoration(
+                  labelText: 'Días de repetición',
+                  prefixIcon: Icon(Icons.repeat)),
+              readOnly: true,
+              enabled: false,
+            ),
+            SizedBox(height: 16),
+            SwitchListTile(
+              activeColor: Color(0xFFC5D4FF),
+              activeTrackColor: Color(0xFF38388E),
+              title: Text('Asistente conversacional'),
+              value: false,
+              onChanged: null,
+            ),
+            Spacer(),
+            ElevatedButton.icon(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Confirmar'),
+                      content: Text('¿Estás seguro de que deseas eliminar esta alarma?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text('Cancelar'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context); 
+                            Navigator.pop(context); 
+                          },
+                          child: Text('Eliminar', style: TextStyle(color: Colors.red)),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              icon: Icon(Icons.delete, color: Colors.white),
+              label: Text('Eliminar Alarma', style: TextStyle(color: Colors.white)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                minimumSize: Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class AssistantSettingsScreen extends StatelessWidget {
   const AssistantSettingsScreen({super.key});
 
