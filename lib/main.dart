@@ -403,6 +403,104 @@ class AssistantSettingsScreen extends StatelessWidget {
   }
 }
 
+class AssistantCreateEditScreen extends StatelessWidget {
+  const AssistantCreateEditScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Editar Asistente', style: TextStyle(color: Color(0xFF38388E))),
+        backgroundColor: Color(0xFFECF1FF),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Nombre del Asistente',
+                prefixIcon: Icon(Icons.person, color: Color(0xFFAB7E85)),
+              ),
+            ),
+            SizedBox(height: 24),
+            Text('Configuración de Voz',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            SizedBox(height: 8),
+            ListTile(
+              leading: Icon(Icons.record_voice_over_outlined,
+                  color: Color(0xFFAB7E85)),
+              title: Text('Voz del Asistente'),
+              trailing: DropdownButton<String>(
+                value: 'Femenina',
+                onChanged: (String? newValue) {},
+                items: ['Femenina', 'Masculina'].map((String value) {
+                  return DropdownMenuItem<String>(
+                      value: value, child: Text(value));
+                }).toList(),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.speed, color: Color(0xFFAB7E85)),
+              title: Text('Velocidad de Habla'),
+              trailing: SizedBox(
+                width: 120,
+                child: Slider(
+                  value: 0.5,
+                  onChanged: (value) {},
+                  activeColor: Color(0xFF38388E),
+                  inactiveColor: Color(0xFFC5D4FF),
+                ),
+              ),
+            ),
+            SizedBox(height: 24),
+            Text('Personalización',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            SizedBox(height: 8),
+            SwitchListTile(
+              title: Text('Incluir eventos del calendario'),
+              value: true,
+              onChanged: (value) {},
+              activeColor: Color(0xFFC5D4FF),
+              activeTrackColor: Color(0xFF38388E),
+            ),
+            SwitchListTile(
+              title: Text('Preguntar estado de ánimo'),
+              value: true,
+              onChanged: (value) {},
+              activeColor: Color(0xFFC5D4FF),
+              activeTrackColor: Color(0xFF38388E),
+            ),
+            SwitchListTile(
+              title: Text('Recordatorios personalizados'),
+              value: false,
+              onChanged: (value) {},
+              activeColor: Color(0xFFC5D4FF),
+              activeTrackColor: Color(0xFF38388E),
+            ),
+            Spacer(),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.save, color: Colors.white),
+              label: Text('Guardar Cambios', style: TextStyle(color: Colors.white)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF38388E),
+                minimumSize: Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class CalendarIntegrationScreen extends StatelessWidget {
   const CalendarIntegrationScreen({super.key});
 
